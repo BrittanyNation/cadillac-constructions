@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadillac Constructions | Handyman &amp; Property Maintenance in Hickory, NC</title>
+  <meta name="description" content="Cadillac Constructions provides professional painting, plumbing, home improvement, and handyman services in Hickory, NC and surrounding areas. Call (828) 639-1097 for a free estimate.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="nav">
+    <a class="nav-brand" href="#top" aria-label="Cadillac Constructions home">
+      <img src="assets/logo.jpg" alt="Cadillac Constructions logo" class="nav-logo">
+      <span class="nav-name">Cadillac Constructions</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#area">Service Area</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-call" href="tel:+18286391097">Call (828) 639-1097</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="hero-inner">
+        <img src="assets/logo.jpg" alt="Cadillac Constructions badge" class="hero-logo">
+        <p class="hero-kicker">Hickory, NC | Est. 2026</p>
+        <h1>Cadillac Constructions</h1>
+        <p class="hero-tagline">Handyman &amp; Property Maintenance</p>
+        <p class="hero-sub">Painting, plumbing, and home improvement done right the first time. Free estimates. Dependable work.</p>
+        <div class="hero-actions">
+          <a class="btn btn-call" href="tel:+18286391097">Call Now</a>
+          <a class="btn btn-ghost" href="mailto:kennation40@gmail.com">Email Us</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <h2>Services</h2>
+      <p class="section-lead">One call covers the whole to-do list.</p>
+      <div class="services-grid">
+        <article class="card">
+          <h3>Professional Painting</h3>
+          <p>Interior and exterior painting with clean lines and careful prep. Rooms, trim, siding, and more.</p>
+        </article>
+        <article class="card">
+          <h3>Plumbing</h3>
+          <p>Leaks, fixtures, toilets, and small repairs handled quickly and cleanly.</p>
+        </article>
+        <article class="card">
+          <h3>Home Improvement</h3>
+          <p>Remodels, repairs, drywall, flooring, and upgrades that make your home work better.</p>
+        </article>
+        <article class="card">
+          <h3>Handyman &amp; Property Maintenance</h3>
+          <p>Ongoing maintenance and odd jobs for homeowners and rental properties. Big or small, we handle it.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section section-alt">
+      <h2>About</h2>
+      <p class="about-text">Cadillac Constructions is based in Hickory, NC and has served the area since 2026. We do dependable, quality work at fair prices, and we stand behind every job. Call or email for a free estimate.</p>
+      <ul class="about-points">
+        <li>Free estimates</li>
+        <li>Dependable scheduling</li>
+        <li>Clean, careful workmanship</li>
+      </ul>
+    </section>
+
+    <section id="area" class="section">
+      <h2>Service Area</h2>
+      <p class="section-lead">Serving Hickory, NC and surrounding areas.</p>
+      <p class="area-list">Hickory &bull; Conover &bull; Newton &bull; Lenoir &bull; Morganton &bull; Statesville</p>
+      <p class="area-note">Outside these towns? Call and ask. We travel for the right job.</p>
+    </section>
+
+    <section id="contact" class="section section-alt">
+      <h2>Contact</h2>
+      <p class="section-lead">Tell us about your project. We reply fast.</p>
+      <div class="contact-grid">
+        <div class="contact-direct">
+          <a class="contact-line" href="tel:+18286391097">
+            <span class="contact-label">Phone</span>
+            <span class="contact-value">(828) 639-1097</span>
+          </a>
+          <a class="contact-line" href="mailto:kennation40@gmail.com">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">kennation40@gmail.com</span>
+          </a>
+          <p class="contact-hours">Call or text anytime. If we miss you, we call back the same day.</p>
+        </div>
+        <form class="contact-form" id="quote-form" novalidate>
+          <label>
+            Your name
+            <input type="text" name="name" id="f-name" required autocomplete="name">
+          </label>
+          <label>
+            Phone or email
+            <input type="text" name="reach" id="f-reach" required autocomplete="tel">
+          </label>
+          <label>
+            What do you need done?
+            <textarea name="message" id="f-message" rows="4" required></textarea>
+          </label>
+          <button type="submit" class="btn btn-call">Send Request</button>
+          <p class="form-note">This opens your email app with your message addressed to us.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p class="footer-name">Cadillac Constructions</p>
+    <p>Handyman &amp; Property Maintenance | Hickory, NC</p>
+    <p><a href="tel:+18286391097">(828) 639-1097</a> &bull; <a href="mailto:kennation40@gmail.com">kennation40@gmail.com</a></p>
+    <p class="footer-copy">&copy; 2026 Cadillac Constructions. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var links = document.querySelector('.nav-links');
+      toggle.addEventListener('click', function () {
+        var open = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      links.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') links.classList.remove('open');
+      });
+
+      document.getElementById('quote-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = document.getElementById('f-name').value.trim();
+        var reach = document.getElementById('f-reach').value.trim();
+        var msg = document.getElementById('f-message').value.trim();
+        if (!name || !reach || !msg) {
+          alert('Please fill in your name, phone or email, and project details.');
+          return;
+        }
+        var subject = encodeURIComponent('Project request from ' + name);
+        var body = encodeURIComponent('Name: ' + name + '\nReach me at: ' + reach + '\n\nProject details:\n' + msg);
+        window.location.href = 'mailto:kennation40@gmail.com?subject=' + subject + '&body=' + body;
+      });
+    })();
+  </script>
+
+</body>
+</html>
