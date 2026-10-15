@@ -69,29 +69,37 @@
     <section id="work" class="section">
       <h2>Recent Work</h2>
       <p class="section-lead">Log home chinking, sealing, and exterior care. On the lift and up close, this is the kind of careful work we bring to every job.</p>
-      <div class="work-grid">
-        <figure class="work-item">
-          <img src="assets/log-cabin-front.jpg" alt="Log home exterior with a boom lift in front while chinking work is underway" loading="lazy">
+      <div class="slideshow" id="workSlideshow" aria-label="Recent work photo slideshow">
+        <figure class="slide active">
+          <img src="assets/log-cabin-front.jpg" alt="Log home exterior with a boom lift in front while chinking work is underway">
           <figcaption>Log home exterior restoration</figcaption>
         </figure>
-        <figure class="work-item">
-          <img src="assets/log-cabin-chinking-closeup.jpg" alt="Close-up of fresh chinking being applied between the logs of a log home from a lift platform" loading="lazy">
+        <figure class="slide">
+          <img src="assets/log-cabin-chinking-closeup.jpg" alt="Close-up of fresh chinking being applied between the logs of a log home from a lift platform">
           <figcaption>Chinking and sealing, up close</figcaption>
         </figure>
-        <figure class="work-item">
-          <img src="assets/log-cabin-lift-side.jpg" alt="Side view of the boom lift raised to the second story of a log home" loading="lazy">
+        <figure class="slide">
+          <img src="assets/log-cabin-lift-side.jpg" alt="Side view of the boom lift raised to the second story of a log home">
           <figcaption>Second-story work, done safely</figcaption>
         </figure>
-        <figure class="work-item">
-          <img src="assets/lift-operator-view.jpg" alt="View from the lift basket controls looking out over the job site" loading="lazy">
+        <figure class="slide">
+          <img src="assets/lift-operator-view.jpg" alt="View from the lift basket controls looking out over the job site">
           <figcaption>From the operator's seat</figcaption>
         </figure>
-        <figure class="work-item">
-          <img src="assets/log-cabin-driveway.jpg" alt="The lift parked in the driveway of the log home at the end of the workday" loading="lazy">
+        <figure class="slide">
+          <img src="assets/log-cabin-driveway.jpg" alt="The lift parked in the driveway of the log home at the end of the workday">
           <figcaption>Wrapped up for the day</figcaption>
         </figure>
+        <button class="slide-btn prev" type="button" aria-label="Previous photo">&#8249;</button>
+        <button class="slide-btn next" type="button" aria-label="Next photo">&#8250;</button>
       </div>
-    </section>
+      <div class="slide-dots" id="workDots">
+        <button type="button" class="dot active" aria-label="Go to photo 1"></button>
+        <button type="button" class="dot" aria-label="Go to photo 2"></button>
+        <button type="button" class="dot" aria-label="Go to photo 3"></button>
+        <button type="button" class="dot" aria-label="Go to photo 4"></button>
+        <button type="button" class="dot" aria-label="Go to photo 5"></button>
+      </div></section>
 
     <section id="about" class="section section-alt">
       <h2>About</h2>
@@ -181,5 +189,34 @@
     })();
   </script>
 
+
+  <script>
+    (function () {
+      var box = document.getElementById('workSlideshow');
+      if (!box) return;
+      var slides = box.querySelectorAll('.slide');
+      var dots = document.querySelectorAll('#workDots .dot');
+      var i = 0, timer = null;
+      function show(n) {
+        i = ((n % slides.length) + slides.length) % slides.length;
+        slides.forEach(function (s, k) { s.classList.toggle('active', k === i); });
+        dots.forEach(function (d, k) { d.classList.toggle('active', k === i); });
+      }
+      function start() { timer = setInterval(function () { show(i + 1); }, 4500); }
+      function reset() { clearInterval(timer); start(); }
+      box.querySelector('.prev').addEventListener('click', function () { show(i - 1); reset(); });
+      box.querySelector('.next').addEventListener('click', function () { show(i + 1); reset(); });
+      dots.forEach(function (d, k) { d.addEventListener('click', function () { show(k); reset(); }); });
+      var startX = null;
+      box.addEventListener('touchstart', function (e) { startX = e.changedTouches[0].clientX; }, { passive: true });
+      box.addEventListener('touchend', function (e) {
+        if (startX === null) return;
+        var dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) { show(dx < 0 ? i + 1 : i - 1); reset(); }
+        startX = null;
+      }, { passive: true });
+      show(0); start();
+    })();
+  </script>
 </body>
 </html>
